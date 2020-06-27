@@ -199,6 +199,8 @@ gst_codec_utils_aac_get_profile (const guint8 * audio_config, guint len)
       return "ssr";
     case 4:
       return "ltp";
+    case 31:
+      return "eld";
     default:
       break;
   }
@@ -338,6 +340,7 @@ gst_codec_utils_aac_get_level (const guint8 * audio_config, guint len)
       pcu_ref = 4;
       rcu_ref = 4;
       break;
+    case 31:                    /* ELD */
     case 1:                    /* Main */
     default:
       /* Other than a couple of ER profiles, Main is the worst-case */
